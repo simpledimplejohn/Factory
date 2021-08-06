@@ -16,7 +16,7 @@ A webapp with a database that is designed to show my ability to use ASP.Net Core
 * _MySQL Database_
 * _Razor_
 * _EF_Core_
-
+* _Migration_
 
 
 ### __Setup/Installation__
