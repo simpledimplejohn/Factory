@@ -1,12 +1,12 @@
- @{
+@{
   Layout = "_Layout";
 }
 
 @model Factory.Models.Machine
 
-<h2>Add a Engineer</h2>
+<h2>Add a engineer</h2>
 
-<h4>Add a Engineer to this task: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Add a engineer to this task: @Html.DisplayFor(model => model.Description)</h4>
 
 @using (Html.BeginForm())
 {
@@ -18,4 +18,4 @@
   <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to machines", "Index")</p> 
+<p>@Html.ActionLink("Back to list", "Index")</p>
