@@ -27,9 +27,9 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Engineer engineer)
+    public ActionResult Create(Engineer category)
     {
-      _db.Engineers.Add(engineer);
+      _db.Engineers.Add(category);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -37,35 +37,35 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
-          .Include(engineer => engineer.JoinEntities)
+          .Include(category => category.JoinEntities)
           .ThenInclude(join => join.Machine)
-          .FirstOrDefault(engineer => engineer.EngineerId == id);
+          .FirstOrDefault(category => category.EngineerId == id);
       return View(thisEngineer);
     }
     public ActionResult Edit(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(category => category.EngineerId == id);
       return View(thisEngineer);
     }
 
     [HttpPost]
-    public ActionResult Edit(Engineer engineer)
+    public ActionResult Edit(Engineer category)
     {
-      _db.Entry(engineer).State = EntityState.Modified;
+      _db.Entry(category).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(category => category.EngineerId == id);
       return View(thisEngineer);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(category => category.EngineerId == id);
       _db.Engineers.Remove(thisEngineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
